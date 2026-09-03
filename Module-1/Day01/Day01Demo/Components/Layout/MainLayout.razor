@@ -1,3 +1,5 @@
+@* The app-wide shell. @inherits LayoutComponentBase makes this a layout; every page
+   renders through here unless a more specific layout (like AdminLayout) wraps it first. *@
 @inherits LayoutComponentBase
 
 <div class="page">
@@ -11,6 +13,8 @@
         </div>
 
         <article class="content px-4">
+            @* @Body renders the routed page — or a nested layout (AdminLayout) that
+               then renders the page through its own @Body. *@
             @Body
         </article>
     </main>

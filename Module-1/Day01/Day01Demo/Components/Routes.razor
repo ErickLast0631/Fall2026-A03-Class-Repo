@@ -1,5 +1,7 @@
 <Router AppAssembly="typeof(Program).Assembly">
     <Found Context="routeData">
+        @* DefaultLayout = the fallback layout for any page that doesn't pick its own.
+           Admin pages override it to AdminLayout via Admin/_Imports.razor. *@
         <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>
