@@ -1,5 +1,5 @@
 @* TODO (Practice 3, Step 11): Add the @page directive for "/projects/{projectId:int}/tasks/{taskId:int}". *@
-
+@page "/projects/{projectId:int}/tasks/{taskId:int}"
 <PageTitle>Task Detail</PageTitle>
 
 <h1>Task Detail</h1>
@@ -29,5 +29,9 @@
 
 @code {
     @* TODO (Practice 3, Step 12): Add a [Parameter] property for ProjectId (int). *@
+    [Parameter]
+    public int ProjectId { get; set; }
     @* TODO (Practice 3, Step 13): Add a [Parameter] property for TaskId (int). *@
+    [Parameter]
+    public int TaskId { get; set; }
 }
