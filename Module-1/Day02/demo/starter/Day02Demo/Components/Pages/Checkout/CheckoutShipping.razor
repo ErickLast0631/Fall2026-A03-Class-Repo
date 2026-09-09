@@ -1,4 +1,5 @@
 @page "/checkout/shipping"
+@inject NavigationManager Navigation 
 
 <PageTitle>Checkout - Shipping</PageTitle>
 
@@ -30,5 +31,6 @@
 @code {
     private void ContinueToPayment()
     {
+        Navigation.NavigateTo("/checkout/payment");
     }
 }

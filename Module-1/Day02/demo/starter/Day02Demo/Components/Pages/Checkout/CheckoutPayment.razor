@@ -1,5 +1,5 @@
 @page "/checkout/payment"
-
+@inject NavigationManager Navigation
 <PageTitle>Checkout - Payment</PageTitle>
 
 <h1>Checkout: Payment</h1>
@@ -42,9 +42,11 @@
 @code {
     private void GoBack()
     {
+        Navigation.NavigateTo("/checkout/shipping");
     }
 
     private void ReviewOrder()
     {
+        Navigation.NavigateTo("/checkout/confirm");
     }
 }

@@ -1,5 +1,5 @@
 @page "/"
-
+@inject NavigationManager Navigation
 <PageTitle>Day 2 Demo - NavigationManager</PageTitle>
 
 <h1>Day 2 Demo: Multiple Parameters &amp; NavigationManager</h1>
@@ -37,5 +37,7 @@
 
     private void GoToProduct()
     {
+        // "/products/home/55"
+        Navigation.NavigateTo($"/products/{category}/{productId}");
     }
 }
