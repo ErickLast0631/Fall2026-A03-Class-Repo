@@ -1,0 +1,70 @@
+@page "/products"
+
+@* Practice 3 -- the two patterns COMBINED. Note there is deliberately NO
+   @attribute [Authorize]: this page is public, everyone can load it. Authorization
+   happens per-ELEMENT instead -- each <AuthorizeView> below hides its content (the
+   Edit buttons) from anonymous users while the product list stays visible to all.
+   Adding [Authorize] here would be the classic mistake: it would lock the whole
+   public page behind login. Whole-page gate = [Authorize]; per-element = AuthorizeView. *@
+
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<AuthorizeView>
+    <Authorized>
+        <div class="alert alert-success">
+            Welcome, <strong>@context.User.Identity?.Name</strong>! You can edit products.
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-info">
+            <a href="/Account/Login" class="alert-link">Log in</a> to edit products.
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>NAIT Hoodie</td>
+            <td>$49.99</td>
+            <td>
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                    </Authorized>
+                </AuthorizeView>
+            </td>
+        </tr>
+        <tr>
+            <td>Campus Mug</td>
+            <td>$14.99</td>
+            <td>
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                    </Authorized>
+                </AuthorizeView>
+            </td>
+        </tr>
+        <tr>
+            <td>Notebook Set</td>
+            <td>$8.99</td>
+            <td>
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                    </Authorized>
+                </AuthorizeView>
+            </td>
+        </tr>
+    </tbody>
+</table>
